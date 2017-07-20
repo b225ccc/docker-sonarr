@@ -16,7 +16,7 @@ before_script:
 
 script:
   - docker run -d -p 127.0.0.1:8989:8989 --name sonarr $REPO:$COMMIT
-  - docker ps | grep -qi drone
+  - docker ps | grep -q sonarr
 
 after_success:
   - docker login -e "$DOCKER_EMAIL" -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
